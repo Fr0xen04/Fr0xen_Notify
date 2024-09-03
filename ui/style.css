@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.notif-progressbar {
+  width: 2vh;
+  height: 2vh;
+  position: absolute;
+  top: 1.5vh;
+  right: 1.5vh;
+  transform: rotate(-90deg);
+}
+
+#notifications {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20vw;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1vh;
+}
+
+#notifications .notification {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  animation-name: notificationIn;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#notifications .notification.notification-out {
+  animation-name: notificationOut;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+#notifications .notification .notification-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+#notifications .notification .notification-content .notification-image {
+  display: flex;
+  justify-content: center;
+  margin-right: 1vw;
+}
+
+#notifications .notification .notification-content .notification-image img {
+  height: 4vh;
+  width: auto;
+}
+
+#notifications .notification .notification-content .notification-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+#notifications .notification .notification-content .notification-text .notification-line1 {
+  color: #ffffff;
+  font-size: 1.8vh;
+  font-weight: 600;
+}
+
+#notifications .notification .notification-content .notification-text .notification-line2 {
+  color: #ffffffc0;
+  font-size: 1.1vh;
+}
+
+@keyframes notificationIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notificationOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
